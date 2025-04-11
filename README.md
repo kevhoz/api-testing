@@ -136,7 +136,10 @@ if ($price > 90000000) {
 $stmt = $pdo->prepare("INSERT INTO products (name, price) VALUES (?, ?)");
 $stmt->execute([$name, $price]);
 
-echo json_encode(["message" => "Produk berhasil ditambahkan"]);
+echo json_encode([
+    "message" => "Produk berhasil ditambahkan",
+    "id" => $pdo->lastInsertId()
+  ]);
 ```
 - Open file delete.php inside folder products, this is source code for the file:
 ```
@@ -152,7 +155,7 @@ $id = $data['id'];
 $stmt = $pdo->prepare("DELETE FROM products WHERE id=?");
 $stmt->execute([$id]);
 
-echo json_encode(["message" => "Product deleted"]);
+echo json_encode(["message" => "Product berhasil dihapus"]);
 ```
 - Open file read.php inside folder products, this is source code for the file:
 ```
@@ -202,7 +205,7 @@ if ($price > 90000000) {
 $stmt = $pdo->prepare("UPDATE products SET name=?, price=? WHERE id=?");
 $stmt->execute([$name, $price, $id]);
 
-echo json_encode(["message" => "Product updated"]);
+echo json_encode(["message" => "Produk berhasil diupdate"]);
 ```
 - Open file .env inside root, this is source code for the file:
 ```
@@ -298,83 +301,60 @@ if (file_exists($filepath)) {
 
 <div id="unit-testing-1">
 <h2>
-  Simple Case of API Testing
+  Simple Case of API Chained Testing
 </h2>
 
-- Create 2 PHP file; "User.php" in src folder and "UserTest.php" in tests folder
-- This is source code for User.php:
+- Create New Folder and New Request like this tree structure:
+  ![image](https://github.com/user-attachments/assets/b65539ba-ce96-41a7-93a3-a14cea849aeb)
 
-![image](https://github.com/user-attachments/assets/25f526df-4b9d-47e1-baa0-2eb3a9c5c18e)
+- Note: you can copy paste and edit + rename from request you already created before.
+  
+- In request: [Create] New Product, you need to add in body and post-response script:
+- Here is for the body:
+  ![image](https://github.com/user-attachments/assets/d6706192-fc9f-45a3-a5e3-f0c09cd65930)
 
-- This is source code for UserTest.php:
+- Here is for the post-response script:
+  ![image](https://github.com/user-attachments/assets/fd5b8dbf-8ce1-4f27-af8f-b8090a5c1ab2)
 
-![image](https://github.com/user-attachments/assets/2744d3f9-3aab-43e6-a99f-964e9ccf8319)
+- In request: [Read] Check if the product created, you need to add in post-response script:
+- Here is for the post-response script:
+  ![image](https://github.com/user-attachments/assets/195fc036-06c6-4fd7-8b60-7c360e6bdb1d)
 
+- In request: [Update] Update the product, you need to add in body and post-response script:
+- Here is for the body:
+  ![image](https://github.com/user-attachments/assets/ddd4099f-5c9c-438c-a3cc-7496967de268)
 
-- Lets try test it: (To test all script inside folder tests)
-```
-./vendor/bin/phpunit --bootstrap vendor/autoload.php tests
-```
-- Lets try test it: (To test spesific script inside folder tests)
-```
-./vendor/bin/phpunit tests/UserTest.php
-```
-- Simple Case 1, Done
+- Here is for the post-response script:
+  ![image](https://github.com/user-attachments/assets/c9b7c304-287d-4c65-a80b-8f89a77acdf7)
 
-</div>
+- In request: [Read] Check if the product updated, you need to add in post-response script:
+- Here is for the post-response script:
+  ![image](https://github.com/user-attachments/assets/470e2390-22b2-4997-bf3d-8bf9b57e69f0)
 
-<div id="unit-testing-2">
-<h2>
-  Simple case 2: Calculator Testing
-</h2>
+- In request: [Delete] Delete product, you need to add in body and post-response script:
+- Here is for the body:
+  ![image](https://github.com/user-attachments/assets/0175f4f3-7ae5-4f58-8e15-ce1a5d7d6774)
 
-- Create 2 PHP file; "Calculator.php" in src folder and "CalculatorTest.php" in tests folder
-- This is source code for Calculator.php:
+- Here is for the post-response script:
+  ![image](https://github.com/user-attachments/assets/1d3d961d-0602-47c5-a082-8914078dc0b0)
 
-![image](https://github.com/user-attachments/assets/4f775ece-ba4d-4901-970c-7b48b940ca2e)
+- In request: [Read] Check if the product deleted, you need to add in post-response script:
+- Here is for the post-response script:
+  ![image](https://github.com/user-attachments/assets/c01b7eb9-a031-4bec-9b6d-bbf20f2d1f89)
 
-- This is source code for CalculatorTest.php:
+<h3>
+  Let's test it!
+</h3>
 
-![image](https://github.com/user-attachments/assets/6412b3c7-a95f-4179-8249-5af983f9890e)
+- Run the folder collections:
+  ![image](https://github.com/user-attachments/assets/46534689-d697-4d39-9b44-6790e31edb42)
 
-- Lets try test it: (To test all script inside folder tests)
-```
-./vendor/bin/phpunit --bootstrap vendor/autoload.php tests
-```
-- Lets try test it: (To test spesific script inside folder tests)
-```
-./vendor/bin/phpunit tests/CalculatorTest.php
-```
-- Simple Case 2, Done
+- Run the collections:
+  ![image](https://github.com/user-attachments/assets/f63dcf19-460d-41c2-8583-2c86773037b8)
 
-</div>
+- Result:
+  ![image](https://github.com/user-attachments/assets/bc195ab5-80f4-4d02-a50b-6f4e8891caf5)
 
-<div id="unit-testing-3">
-<h2>
-  Simple case 3: Student Testing
-</h2>
-
-- Create 3 PHP file; "Student.php" and "Course.php" in src folder and "StudentTest.php" in tests folder
-- This is source code for Student.php:
-
-![image](https://github.com/user-attachments/assets/70a56cc0-5474-4065-aacd-237d1af8df85)
-
-- This is source code for Course.php:
-
-![image](https://github.com/user-attachments/assets/2d13017e-6803-4e90-9126-727234a75417)
-
-- This is source code for StudentTest.php:
-
-![image](https://github.com/user-attachments/assets/311e9cce-1758-4068-9540-7926c90e4e99)
-
-- Lets try test it: (To test all script inside folder tests)
-```
-./vendor/bin/phpunit --bootstrap vendor/autoload.php tests
-```
-- Lets try test it: (To test spesific script inside folder tests)
-```
-./vendor/bin/phpunit tests/StudentTest.php
-```
-- Simple Case 3, Done
+- Simple Case of API Chained Testing, Done
 
 </div>
