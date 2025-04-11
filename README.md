@@ -311,35 +311,44 @@ if (file_exists($filepath)) {
   
 - In request: [Create] New Product, you need to add in body and post-response script:
 - Here is for the body:
+
   ![image](https://github.com/user-attachments/assets/d6706192-fc9f-45a3-a5e3-f0c09cd65930)
 
 - Here is for the post-response script:
+
   ![image](https://github.com/user-attachments/assets/fd5b8dbf-8ce1-4f27-af8f-b8090a5c1ab2)
 
 - In request: [Read] Check if the product created, you need to add in post-response script:
 - Here is for the post-response script:
+
   ![image](https://github.com/user-attachments/assets/195fc036-06c6-4fd7-8b60-7c360e6bdb1d)
 
 - In request: [Update] Update the product, you need to add in body and post-response script:
 - Here is for the body:
+
   ![image](https://github.com/user-attachments/assets/ddd4099f-5c9c-438c-a3cc-7496967de268)
 
 - Here is for the post-response script:
+
   ![image](https://github.com/user-attachments/assets/c9b7c304-287d-4c65-a80b-8f89a77acdf7)
 
 - In request: [Read] Check if the product updated, you need to add in post-response script:
 - Here is for the post-response script:
+
   ![image](https://github.com/user-attachments/assets/470e2390-22b2-4997-bf3d-8bf9b57e69f0)
 
 - In request: [Delete] Delete product, you need to add in body and post-response script:
 - Here is for the body:
+
   ![image](https://github.com/user-attachments/assets/0175f4f3-7ae5-4f58-8e15-ce1a5d7d6774)
 
 - Here is for the post-response script:
+
   ![image](https://github.com/user-attachments/assets/1d3d961d-0602-47c5-a082-8914078dc0b0)
 
 - In request: [Read] Check if the product deleted, you need to add in post-response script:
 - Here is for the post-response script:
+
   ![image](https://github.com/user-attachments/assets/c01b7eb9-a031-4bec-9b6d-bbf20f2d1f89)
 
 <h3>
@@ -347,9 +356,11 @@ if (file_exists($filepath)) {
 </h3>
 
 - Run the folder collections:
+
   ![image](https://github.com/user-attachments/assets/46534689-d697-4d39-9b44-6790e31edb42)
 
 - Run the collections:
+
   ![image](https://github.com/user-attachments/assets/f63dcf19-460d-41c2-8583-2c86773037b8)
 
 - Result:
