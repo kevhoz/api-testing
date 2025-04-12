@@ -259,6 +259,18 @@ if (file_exists($filepath)) {
     echo json_encode(["message" => "Endpoint not found"]);
 }
 ```
+- Continue to create database on MySQL, here is the SQL Query
+- Create Database "api-testing" and table "products"
+```
+CREATE DATABASE `api-testing`;
+
+CREATE TABLE `api-testing`.`products` (
+    `id` int NOT NULL AUTO_INCREMENT,
+    `name` varchar(100) NOT NULL,
+    `price` decimal(10,2) NOT NULL,
+    PRIMARY KEY (`id`)
+);
+```
 - Backend application ready, continue to testing the api
 
 </div>
